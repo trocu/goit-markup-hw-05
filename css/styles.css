@@ -3,23 +3,25 @@
   HTML elements color 
   */
   --brand-color: #2196f3;
+  --default-color: #212121;
   --light-txt-color: #757575;
   --grey-bkg: #2f303a;
   --light-grey-item: #f5f4fa;
   --light-line: #eee;
   --header-line: #ececec;
   --white-item: #fff;
-  --our-customers-box: #afb1b8;
+  --black-item: #000;
 
   /* 
   Specific icons color
   */
-  --footer-socialmedia-elipse: rgba(255, 255, 255, 0.1);
+  --icon-logo-color: #afb1b8;
+  --footer-socialmedia-elipse: rgba(255 255 255 / 0.1);
 }
 
 body {
   font-family: "Roboto", sans-serif;
-  color: #212121;
+  color: var(--default-color);
 }
 ul {
   margin: 0;
@@ -79,10 +81,18 @@ Logo & nav section
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.link-contact svg {
+  fill: currentColor;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .link-contact:hover,
 .link-contact:focus {
   color: var(--brand-color);
+}
+.link-nav li {
+  position: relative;
 }
 .link-nav a {
   text-decoration: none;
@@ -91,6 +101,51 @@ Logo & nav section
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.link-nav a::after {
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.link-nav a:hover::after,
+.link-nav a:focus::after {
+  content: "";
+  width: 100%;
+  position: absolute;
+  bottom: -32.5px;
+  left: -1px;
+  border-bottom: 4px solid;
+  border-color: var(--brand-color);
+  border-radius: 10px;
+}
+/* agency underline */
+.link-nav-agency::after {
+  content: "";
+  width: 100%;
+  position: absolute;
+  bottom: -32.5px;
+  left: -1px;
+  border-bottom: 4px solid;
+  border-color: var(--black-item);
+  border-radius: 10px;
+}
+.link-nav-agency:hover::after,
+.link-nav-agency:focus::after {
+  border-color: var(--brand-color);
+}
+/* portfolio underline */
+.link-nav-portfolio::after {
+  content: "";
+  width: 100%;
+  position: absolute;
+  bottom: -32.5px;
+  left: -1px;
+  border-bottom: 4px solid;
+  border-color: var(--black-item);
+  border-radius: 10px;
+}
+.link-nav-portfolio:hover::after,
+.link-nav-portfolio:focus::after {
+  border-color: var(--brand-color);
 }
 .link-nav a:hover,
 .link-nav a:focus {
@@ -107,12 +162,15 @@ Logo & nav section
   line-height: 1.19;
   margin-right: 93px;
 }
-.logo-hoover-focus:hover span,
-.logo-hoover-focus:focus span {
+.logo span {
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.logo:hover span,
+.logo:focus span {
   color: var(--brand-color);
 }
 .logo-blk-color {
-  color: black;
+  color: var(--black-item);
 }
 .logo-wh-color {
   color: var(--white-item);
@@ -140,7 +198,7 @@ Main title section
 .main-button {
   color: var(--white-item);
   background-color: var(--brand-color);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 4px 4px rgba(0 0 0 / 0.15);
   border: none;
   border-radius: 4px;
   width: 200px;
@@ -153,16 +211,18 @@ Main title section
   cursor: pointer;
   margin: 0 auto;
   display: block;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .main-button:hover,
 .main-button:focus {
-  color: #212121;
+  color: var(--default-color);
   background-color: var(--light-grey-item);
 }
 .grey-rectangle {
   background: var(--grey-bkg);
   background-image: url("../images/cover.jpg"); /* fallback */
-  background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+  background-image: linear-gradient(rgba(47 48 58 / 0.4), rgba(47 48 58 / 0.4)),
     url("../images/cover.jpg");
   background-repeat: no-repeat;
   background-position-x: 50%;
@@ -206,8 +266,27 @@ Lorem ipsum & what we do section
 }
 .main-foto-wrapper li {
   flex-basis: calc((100% - 60px) / 3);
+  position: relative;
 }
-
+.main-foto-wrapper img {
+  display: block;
+}
+.main-foto-overlay {
+  width: 370px;
+  position: absolute;
+  bottom: 0;
+  background: rgba(47 48 58 / 0.8);
+  padding: 13.5px 0;
+}
+.main-foto-overlay p {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--white-item);
+}
 /* 
 About us section
 ---------------- 
@@ -255,8 +334,8 @@ About us section
 .about-us-box li {
   padding-bottom: 30px;
   background: var(--white-item);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 3px rgba(0 0 0 / 0.12), 0px 1px 1px rgba(0 0 0 / 0.14),
+    0px 2px 1px rgba(0 0 0 / 0.2);
   border-radius: 0px 0px 4px 4px;
 }
 
@@ -292,14 +371,22 @@ Footer section
   font-size: 26px;
   line-height: 1.19;
 }
+.logo-footer span {
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.logo-footer:hover span,
+.logo-footer:focus span {
+  color: var(--brand-color);
+}
 .link-footer a {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255 255 255 / 0.6);
   text-decoration: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .link-footer a:hover,
 .link-footer a:focus {
@@ -344,12 +431,15 @@ Main portfolio styles
   text-align: center;
   letter-spacing: 0.03em;
   cursor: pointer;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .portfolio-button:hover,
 .portfolio-button:focus {
   color: var(--white-item);
   background-color: var(--brand-color);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px rgba(0 0 0 / 0.25);
 }
 .portfolio-box-wrap {
   padding: 34px 0 0;
@@ -361,11 +451,43 @@ Main portfolio styles
   justify-content: center;
 }
 .portfolio-box li {
+  min-width: 370px;
   flex-basis: calc((100% - 60px) / 3);
   background: var(--white-item);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.portfolio-box li:hover {
+  box-shadow: 0px 1px 1px rgba(0 0 0 / 0.12), 0px 4px 4px rgba(0 0 0 / 0.06),
+    1px 4px 6px rgba(0 0 0 / 0.16);
+  cursor: pointer;
+}
+.portfolio-box li:hover .portfolio-img-overlay {
+  transform: translate(0, 0);
 }
 .portfolio-box img {
   display: block;
+}
+.portfolio-img-overlay-box {
+  position: relative;
+  overflow: hidden;
+}
+.portfolio-img-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  background: var(--brand-color);
+  opacity: 0.9;
+  padding: 49px 45px 49px 24px;
+  transform: translate(0%, 100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.portfolio-img-overlay p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
+  color: var(--white-item);
 }
 .portfolio-box-desc {
   border-left: 1px solid;
@@ -380,11 +502,6 @@ Main portfolio styles
 }
 .portfolio-box-desc p:last-child {
   margin: 0;
-}
-.portfolio-box li:hover {
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-    1px 4px 6px rgba(0, 0, 0, 0.16);
-  cursor: pointer;
 }
 .project-name {
   font-weight: 700;
@@ -414,7 +531,7 @@ Header contact icons
 */
 .link-contact:hover svg,
 .link-contact:focus svg {
-  --color4: var(--brand-color);
+  fill: var(--brand-color);
 }
 
 /* 
@@ -449,11 +566,14 @@ About us social media icons
   width: 44px;
   height: 44px;
   border-radius: 50%;
+  fill: var(--icon-logo-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .icon-aboutus-wrapper a:hover,
 .icon-aboutus-wrapper a:focus {
   background-color: var(--brand-color);
-  --color3: var(--white-item);
+  fill: var(--white-item);
   cursor: pointer;
 }
 
@@ -470,16 +590,19 @@ Our customers logos
 .our-customers-wrapper a {
   display: inline-block;
   border: 1px solid;
-  border-color: var(--our-customers-box);
+  border-color: var(--icon-logo-color);
   border-radius: 4px;
   cursor: pointer;
   width: 170px;
   height: 92px;
+  fill: var(--icon-logo-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .our-customers-wrapper a:hover,
 .our-customers-wrapper a:focus {
   border-color: var(--brand-color);
-  --color3: var(--brand-color);
+  fill: var(--brand-color);
 }
 
 /* 
@@ -500,11 +623,59 @@ Footer social media icons
   height: 44px;
   border-radius: 50%;
   background-color: var(--footer-socialmedia-elipse);
-  --color3: var(--white-item);
+  fill: var(--white-item);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .icon-footer-wrapper a:hover,
 .icon-footer-wrapper a:focus {
   background-color: var(--brand-color);
-  --color3: var(--white-item);
+  fill: var(--white-item);
+  cursor: url("../images/icons.svg#icon-finger"), pointer;
+}
+
+/* 
+============
+Modal styles
+============
+*/
+.backdrop {
+  position: fixed;
+  display: flex;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0 0 0 / 0.2);
+  transition: transform 250ms;
+}
+.is-hidden {
+  transform: scale(0%);
+}
+.modal-box {
+  position: relative;
+  margin: auto;
+  width: 528px;
+  height: 581px;
+  background: var(--white-item);
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px rgba(0 0 0 / 0.25);
+}
+.modal-button-box {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(0 0 0 / 0.1);
+}
+.modal-button {
+  all: unset;
+  top: 30px;
+  /* border: none; */
+  background-color: red;
   cursor: pointer;
 }
