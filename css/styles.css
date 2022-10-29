@@ -675,7 +675,5 @@ Modal styles
 .modal-button {
   all: unset;
   top: 30px;
-  /* border: none; */
-  background-color: red;
   cursor: pointer;
 }
