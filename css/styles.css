@@ -649,7 +649,7 @@ Modal styles
   transition: transform 250ms;
 }
 .is-hidden {
-  transform: scale(0%);
+  transform: scale(0);
 }
 .modal-box {
   position: relative;
