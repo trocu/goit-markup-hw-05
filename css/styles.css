@@ -1,5 +1,5 @@
 :root {
-  /* 
+  /** 
   HTML elements color 
   */
   --brand-color: #2196f3;
@@ -12,7 +12,7 @@
   --white-item: #fff;
   --black-item: #000;
 
-  /* 
+  /** 
   Specific icons color
   */
   --icon-logo-color: #afb1b8;
@@ -46,7 +46,7 @@ ul {
 
 /* 
 Logo & nav section
------------------- 
+------------------
 */
 .section-border {
   border-bottom: 1px solid;
@@ -107,6 +107,10 @@ Logo & nav section
 .link-nav a:focus {
   color: var(--brand-color);
 }
+
+/** 
+Adds hover link underline 
+*/
 .link-nav a::after {
   content: "";
   position: absolute;
@@ -132,16 +136,19 @@ Logo & nav section
   background: var(--brand-color);
 }
 
-/* index underline start */
-#link-nav-agency {
+/** 
+1. Adds Agency & Portfolio links permanent underline
+2. Multi-class selector increases specificity
+*/
+.link-nav .link-nav-agency {
   color: var(--brand-color);
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-#link-nav-agency:hover,
-#link-nav-agency:focus {
+.link-nav .link-nav-agency:hover,
+.link-nav .link-nav-agency:focus {
   color: var(--black-item);
 }
-#link-nav-agency::after {
+.link-nav .link-nav-agency::after {
   content: "";
   position: absolute;
   width: 101%;
@@ -153,22 +160,20 @@ Logo & nav section
   background: var(--brand-color);
   transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-#link-nav-agency:hover::after,
-#link-nav-agency:focus::after {
+.link-nav .link-nav-agency:hover::after,
+.link-nav .link-nav-agency:focus::after {
   background: var(--black-item);
 }
-/* index underline end */
 
-/* portfolio underline start */
-#link-nav-portfolio {
+.link-nav .link-nav-portfolio {
   color: var(--brand-color);
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-#link-nav-portfolio:hover,
-#link-nav-portfolio:focus {
+.link-nav .link-nav-portfolio:hover,
+.link-nav .link-nav-portfolio:focus {
   color: var(--black-item);
 }
-#link-nav-portfolio::after {
+.link-nav .link-nav-portfolio::after {
   content: "";
   position: absolute;
   width: 101%;
@@ -180,11 +185,10 @@ Logo & nav section
   background: var(--brand-color);
   transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-#link-nav-portfolio:hover::after,
-#link-nav-portfolio:focus::after {
+.link-nav .link-nav-portfolio:hover::after,
+.link-nav .link-nav-portfolio:focus::after {
   background: var(--black-item);
 }
-/* portfolio underline end */
 
 .logo-first-color {
   color: var(--brand-color);
@@ -213,7 +217,7 @@ Logo & nav section
 
 /* 
 Main title section
------------------- 
+------------------
 */
 .main-title-wrap {
   padding: 106px 0;
@@ -263,9 +267,10 @@ Main title section
   background-position-x: 50%;
   background-size: 1600px; /* gradient cap */
 }
+
 /* 
 Lorem ipsum & what we do section
--------------------------------- 
+--------------------------------
 */
 .main-txt-wrapper ul {
   display: flex;
@@ -322,9 +327,10 @@ Lorem ipsum & what we do section
   text-transform: uppercase;
   color: var(--white-item);
 }
+
 /* 
 About us section
----------------- 
+----------------
 */
 .section-title {
   margin-top: 0;
@@ -376,7 +382,7 @@ About us section
 
 /* 
 Footer section
--------------- 
+--------------
 */
 .footer-box {
   background: var(--grey-bkg);
@@ -443,12 +449,12 @@ Footer section
   letter-spacing: 0.03em;
   text-transform: uppercase;
 }
-/* 
-=====================
-Main portfolio styles
-=====================
-*/
 
+/* 
+================
+Portfolio styles
+================
+*/
 .portfolio-btn-wrap ul {
   display: flex;
   justify-content: center;
